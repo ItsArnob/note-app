@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 async function loadNotes(items, db, a) {
-    if (!document.querySelectorAll(".note").length == 0) { console.log("A"); document.getElementById("notes").innerHTML = ""; }
+    if (!document.querySelectorAll(".note").length == 0) { document.getElementById("notes").innerHTML = ""; }
     const ids = items.reverse();
     let idsLength = ids.length;
     ids.forEach(async key => {
@@ -18,7 +18,6 @@ async function loadNotes(items, db, a) {
         div.id = key;
         div.innerHTML = "<p class=\"noteTitle\"></p><p class=\"noteText\"></p>";
         div.querySelector(".noteTitle").innerText = obj.title;
-        console.log(obj.note);
         if (obj.note.indexOf("\n") == -1) { div.querySelector(".noteText").innerText = obj.note; }
         else div.querySelector(".noteText").innerText = obj.note.substr(0, obj.note.indexOf("\n"));
         document.getElementById("notes").appendChild(div);
