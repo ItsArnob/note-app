@@ -1,0 +1,229 @@
+* {
+  margin:0;
+  font-family: poppins;
+  color:white;
+}
+body {
+    height: 100%;
+
+    font-size:20px;
+    color:white;
+    background-color:#282b30;
+
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius:20px;
+    box-shadow: inset 0 0 10px 10px #585c64;
+    border: solid 3px transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius:20px;
+    box-shadow: inset 0 0 10px 10px #868b96;
+    border: solid 3px transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 0 0 10px 10px #b6bccb;
+}
+.flex-container {
+    display: flex;
+    height: 100vh;
+}
+
+
+
+#sidebar-1 {
+    background-color: #3a3e46;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;     
+}
+
+.sidebar-1-icon {
+    margin: 20px 5px;
+    fill:#a0a6b3;
+    transition:0.2s;
+}
+
+.sidebar-1-icon:hover {
+    cursor:pointer;
+    fill:#c8cfdf;
+}
+
+
+#sidebar-2 {
+    background-color: #41454c85;
+    width: 24vw;
+    word-wrap: break-word;
+    min-width:232px;
+    max-width:300px;
+
+}
+#note {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+#card {
+    background-color: #33363c;
+    box-shadow: 0 0 20px 3px rgb(0 0 0 / 60%);
+    border-radius: 10px;
+    width: 80%;
+    height: 80%;
+    padding: 30px 30px;
+    overflow-y:auto;
+    scrollbar-width: thin;
+    word-break: break-all;
+    display:flex;
+    flex-direction:column;
+    
+}
+#notes {
+    margin:5px;
+    height:calc(100vh - 56px);
+    overflow-y: auto;
+}
+.note > p {
+    width:100%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+
+}
+.note {
+    padding:5px;
+    border-radius:5px;
+    margin-bottom:5px;
+    transition:0.1s;
+
+}
+.note:hover {
+    cursor:pointer;
+    background-color:#61646c85;
+}
+.noteText {
+    font-weight:300;
+    font-size:14px;
+}
+.selectedNote {
+    border-left: 3px solid #626771;
+    background-color:#25262985;
+}
+
+#search-top-bar {
+    display:flex;
+    margin:10px 0;
+    justify-content: center;
+    align-items: center;
+}
+#searchInput {
+    color:white;
+    font-weight:300;
+    height:33px;
+    border-radius:30px;
+    border:none;
+    padding-left: 35px;
+    padding-right:10px;
+    width:60%;
+    background-color: #5D6067;
+    background-image: url("/public/images/search\ icon.png");
+    background-position: 10px;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    transition:0.2s;
+}
+#searchInput:focus {
+    outline: none;
+}
+#searchInput::placeholder {
+    font-weight: 300;
+    color:#C9C9C9;
+}
+#searchInput:hover {
+    background-color: #666970;
+}
+
+#addNote {
+    margin:0px;
+    margin-left:6px;
+    width:31px;
+    fill:#9a9da5;
+    transition:0.2s;
+
+}
+#addNote:hover {
+    cursor:pointer;
+    fill:#cacdd7;
+}
+.noteTitle {
+    font-size:17px;
+}
+#noteTitleInput {
+    background-color: #464b53;
+    border:none;
+    outline:none;
+    margin-bottom:10px;
+    height:30px;
+    width:50%;
+    margin:0;
+    padding:0 10px;
+    border-radius:6px;
+    transition:0.2s;
+}
+#noteInput {
+    background-color: #464b53;
+    border:none;
+    outline:none;
+    resize: none;
+    height:100%;
+    padding:10px;
+    border-radius:6px;
+    transition:0.2s;
+}
+button {
+    background-color: #464b53;
+    border:none;
+    outline:none;
+    height:30px;
+    border-radius:5px;
+    transition:0.2s;
+}
+#noteTitleContainer {
+    display:flex;
+    align-items: center;
+    margin-bottom:10px;
+}
+#buttonsContainer {
+    margin-left:auto;
+    display:flex;
+    align-items: center;
+}
+#cancelBtn {
+    margin-left:10px;
+}
+button:hover {
+    box-shadow: 0 0 10px 3px rgb(0 0 0 / 29%);
+    cursor:pointer;
+}
+#saveBtn:hover {
+    
+    background-color:#1ab549;
+}
+#cancelBtn:hover {
+    background-color:#df1717;
+}
+#noteInput:focus, #noteInput:hover {
+    background-color: #4d525a;
+    box-shadow: 0 0 20px 6px rgb(0 0 0 / 19%);
+}
+#noteTitleInput:focus, #noteTitleInput:hover {
+    background-color: #4d525a;
+    box-shadow: 0 0 20px 3px rgb(0 0 0 / 19%);
+}
