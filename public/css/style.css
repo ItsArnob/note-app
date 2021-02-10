@@ -1,26 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
 @media screen and (max-width: 700px) {
     .flex-container {
-    --flex-container-display:none;
+        --flex-container-display:none;
+    }
+    .flex-container-mobile {
+        --flex-container-mobile-display:flex;
+    }
+    .note {
+        --border-bottom-note:solid 2px rgb(0 0 0 / 19%);
     }
 
+}
+@media screen and (max-width: 425px) {
+    #noteTitleContainer {
+        --note-title-container-flx-direction:column;
+    }
+    #buttonsContainer {
+        --margin-left-buttons-container:none;
+        --margin-top-buttons-container:3px;
+    }
 }
 
 * {
   margin:0;
-  font-family: poppins;
+  font-family: "poppins", sans-serif;
   color:white;
 }
 :root {
-    --flex-container-display:flex;    
+    --flex-container-display:flex;  
+    --flex-container-mobile-display:none; 
+    --border-bottom-note:none;
+    --note-title-container-flx-direction:none;
+    --margin-left-buttons-container:auto;
+    --margin-top-buttons-container:0;
 }
 body {
-    height: 100%;
-
     font-size:20px;
     color:white;
     background-color:#282b30;
-
 }
 ::-webkit-scrollbar {
     width: 10px;
@@ -45,8 +62,6 @@ body {
     display: var(--flex-container-display);
     height: 100vh;
 }
-
-
 
 #sidebar-1 {
     background-color: #3a3e46;
@@ -82,7 +97,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-#card {
+#card, #card-mobile {
     background-color: #33363c;
     box-shadow: 0 0 20px 3px rgb(0 0 0 / 60%);
     border-radius: 10px;
@@ -98,7 +113,7 @@ body {
 }
 #notes {
     margin:5px;
-    height:calc(100vh - 56px);
+    height:calc(100vh - 60px);
     overflow-y: auto;
 }
 .note > p {
@@ -108,11 +123,12 @@ body {
     text-overflow: ellipsis;
 
 }
-.note {
+.note, .note-mobile {
     padding:5px;
     border-radius:5px;
     margin-bottom:5px;
     transition:0.1s;
+    border-bottom:var(--border-bottom-note);
 
 }
 .note:hover {
@@ -128,13 +144,14 @@ body {
     background-color:#25262985;
 }
 
-#search-top-bar {
+.search-top-bar {
     display:flex;
-    margin:10px 0;
+    padding: 10px 0;
     justify-content: center;
     align-items: center;
+    background-color: #3a3e46;
 }
-#searchInput {
+.searchInput {
     color:white;
     font-weight:300;
     height:33px;
@@ -150,14 +167,14 @@ body {
     background-size: 16px;
     transition:0.2s;
 }
-#searchInput:focus {
+.searchInput:focus {
     outline: none;
 }
-#searchInput::placeholder {
+.searchInput::placeholder {
     font-weight: 300;
     color:#C9C9C9;
 }
-#searchInput:hover {
+.searchInput:hover {
     background-color: #666970;
 }
 
@@ -209,9 +226,11 @@ button {
     display:flex;
     align-items: center;
     margin-bottom:10px;
+    flex-direction: var(--note-title-container-flx-direction);
 }
 #buttonsContainer {
-    margin-left:auto;
+    margin-left:var(--margin-left-buttons-container);
+    margin-top:var(--margin-top-buttons-container);
     display:flex;
     align-items: center;
 }
@@ -236,4 +255,53 @@ button:hover {
 #noteTitleInput:focus, #noteTitleInput:hover {
     background-color: #4d525a;
     box-shadow: 0 0 20px 3px rgb(0 0 0 / 19%);
+}
+/*for Mobile device/small screens */
+
+.flex-container-mobile {
+    display:var(--flex-container-mobile-display);
+    flex-direction:column;
+    height:100%;
+}
+#bottom-bar {
+    background-color: #3a3e46;
+    display:flex;
+    justify-content:space-evenly;
+
+}
+#notes-mobile {
+    height:100%;
+    overflow-y: auto;
+    background-color: #41454c85;
+}
+#note-container-mobile {
+    height:100%;
+    display:none;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+}
+#titleAndTime {
+    margin-bottom:10px;
+    text-align: center;
+}
+.noteTitleName {
+    font-weight: bold;
+}
+.time {
+    margin-left:auto;
+    font-weight: 200;
+}
+.card-note {
+    padding:10px;
+    border-radius: 10px;
+    background-color: #2e3136;
+    height:100%;
+}
+.title {
+    margin-left:5px;
+
+}
+#titleAndTime-desk {
+    display: flex;
 }

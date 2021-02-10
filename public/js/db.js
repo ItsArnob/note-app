@@ -12,14 +12,31 @@ let db;
         }
     });
     window.db = db;
-    const items = await db.transaction("notes").objectStore("notes").getAllKeys();
 
+    const items = await db.transaction("notes").objectStore("notes").getAllKeys();
     if (items.length === 0) {
         document.getElementById("card").innerHTML = "You dont have any notes. <br>Click the \"add note\" icon to add one!";
-    
+
     } else {
         document.getElementById("card").innerText = "You dont have any notes open.";
-        loadNotes(items, db);   
     }
-    
+    const a = async (x) => {
+        const items = await db.transaction("notes").objectStore("notes").getAllKeys();
+        if (x.matches) {
+            console.log("Mobile mode");
+            loadNotes(items, db, false, "notes-mobile", true, "mobile");
+        }
+        else {
+            console.log("desktop mode");
+            loadNotes(items, db, false, "notes", true, "desktop");
+        }
+    };
+    let x = window.matchMedia("(max-width: 700px)");
+    a(x);
+    x.addEventListener("change", a);
+
+
 })();
+
+window.addEventListener("resize", resetHeight);
+resetHeight();
