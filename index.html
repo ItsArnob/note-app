@@ -13,7 +13,7 @@
         const countdown = () => {
             seconds = seconds - 1;
             if (seconds < 0) {
-                window.location = "/notes";
+                window.location = "/note-app/notes";
             } else {
                 document.getElementById("countdown").innerHTML = seconds;
                 window.setTimeout("countdown()", 1000);
